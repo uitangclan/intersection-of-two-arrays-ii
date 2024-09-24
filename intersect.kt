@@ -9,6 +9,12 @@ fun main (){
 fun intersect(nums1: IntArray, nums2: IntArray): IntArray {
 
     var map = HashMap<Int, Int> ()
+    nums1.sort()
+    nums2.sort()
+
+    if (nums1.size > nums2.size) {
+        return intersect(nums2, nums1)
+    }
 
     for(n in nums1) {
         map.put(n, map.getOrDefault(n, 0) + 1)
